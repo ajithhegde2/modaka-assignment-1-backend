@@ -24,9 +24,9 @@ const client = new S3Client({
 
   try {
     const response = await client.send(command)
-    console.log(response)
+    return response
   } catch (err) {
-    console.error(err)
+   return new Error(err)
   }
 }
 

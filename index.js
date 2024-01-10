@@ -12,8 +12,8 @@ app.use(express.json({ limit: '5mb' }));
 
 app.post('/api',upload.any(), async(req,res,next)=>{
 
-   sendToS3(req.files[0])
-  res.json('hi')
+   const res = sendToS3(req.files[0])
+  res.json(res)
 })
 
 
