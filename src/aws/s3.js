@@ -12,19 +12,19 @@ const client = new S3Client({
   },
 })
 
-  
-  
-  const command = new PutObjectCommand({
+  const params = {
     Bucket: process.env.MY_AWS_S3_BUCKET_NAME,
     Key: Date.now().toString(),
     Body: file.buffer, // Assuming file.buffer contains the file data
     ContentType: file.mimetype,
     ContentEncoding: 'base64',
-  })
+  }
+  
+
 
   try {
-    const response = await client.send(command)
-    return response
+    const response = await client.send(new PutObjectCommand(params))
+    return params.Key
   } catch (err) {
    return new Error(err)
   }
