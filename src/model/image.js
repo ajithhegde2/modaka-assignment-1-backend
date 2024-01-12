@@ -10,11 +10,14 @@ const Image = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-   
+    fileName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     // Other model options go here
-    tableName:'Images'
+    tableName: 'Images',
   }
 )
 
